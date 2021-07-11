@@ -59,6 +59,7 @@ void loop() {
   while (ESP_Serial.available() > 0)
   {
     payload = ESP_Serial.readString();
+    Serial.println(payload);
     timeWithoutSeconds = payload.substring(0, 5);  // Takes characters: XX:XX
     //day = payload.substring(10,11);
     //date = payload.substring(13, 21);
@@ -66,7 +67,7 @@ void loop() {
 
     //if (readTime >= 30000) {
       //readTime = readTime - 30000;
-      Serial.println(timeWithoutSeconds);
+      //Serial.println(timeWithoutSeconds);
       //Serial.println(day);
       //Serial.println(date);
       tft.drawText(10, 10, timeWithoutSeconds);
